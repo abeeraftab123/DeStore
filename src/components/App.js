@@ -33,7 +33,8 @@ class App extends Component {
     const web3 = window.web3
     console.log(web3);
     //Load account
-
+    const accounts = await web3.eth.getAccounts()
+    this.setState({ account: accounts[0] })
     //Network ID
 
     //IF got connection, get data from contracts
@@ -69,10 +70,11 @@ class App extends Component {
 
   }
 
-  //Set states
+  //Set states runs when components are created
   constructor(props) {
     super(props)
     this.state = {
+      loading: true
     }
 
     //Bind functions
